@@ -37,7 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app',
+    'crispy_forms', # pip install django-crispy-forms # Instalamos modulos adicionales
+    'crispy_bootstrap4', # pip install crispy-bootstrap4 # Instalamos modulos adicionales
 ]
+
+# constantes
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"  # Configuracion para Bootstrap 4
+CRISPY_TEMPLATE_PACK = "bootstrap4"  # Configuracion para Bootstrap 4
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -103,9 +110,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-es' # en-us
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Lima' # UTC
 
 USE_I18N = True
 

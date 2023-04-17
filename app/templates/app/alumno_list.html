@@ -1,0 +1,48 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+    <table class="table table-borderless">
+        <thead class="border-bottom font-weight-bold">
+            <tr>
+                <td>Código</td>
+                <td>Nombre</td>
+                <td>Apellidos</td>
+                <td>Fecha de Nacimiento</td>
+                <td>Edad</td>
+                <td>Email</td>
+                <td>Telefono</td>
+                <td>Estado</td>
+                <td>
+                    <a href="{% url 'alumno_insert' %}" class="btn btn-outline-success">
+                        <i class="fas fa-plus"></i> Add New
+                    </a>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for alumno in alumno_list %}
+            <tr>
+                <td>{{alumno.codigo}}</td>
+                <td>{{alumno.nombre}}</td>
+                <td>{{alumno.apellidos}}</td>
+                <td>{{alumno.fecha_nacimiento}}</td>
+                <td>{{alumno.edad}}</td>
+                <td>{{alumno.email}}</td>
+                <td>{{alumno.telefono}}</td>
+                <td>{{alumno.estado}}</td>
+                <td>
+                    <a href="{% url 'alumno_update' alumno.id %}" class="btn text-secondary px-0" title="Edit">
+                        <i class="far fa-edit fa-lg"></i>
+                    </a>
+                    <form action="{% url 'alumno_delete' alumno.id %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">
+                            <i class="far fa-trash-alt fa-lg text-danger float-right" title="Delete"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}
